@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div id="signin" class="text-center">
+    <form>
+      <h1 class="mt-5 mb-3">
+        <i class="fas fa-bug"></i>
+        <br>
+        Insecticide
+      </h1>
+      <div class="form-floating mb-2">
+        <input type="email" class="form-control" id="floatingEmail" placeholder="Email">
+        <label for="floatingEmail">Email</label>
+      </div>
+      <div class="form-floating mb-2">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+        <label for="floatingPassword">Password</label>
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Log in</button>
+    </form>
+  </div>
+{% endblock %}
