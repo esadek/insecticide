@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div id="signup" class="text-center"> 
+    <form class="row gx-2">
+      <h1 class="mt-5 mb-3">
+        <i class="fas fa-bug"></i>
+        <br>
+        Insecticide
+      </h1>
+      <div class="col-md-6">
+        <div class="form-floating mb-2">
+          <input type="text" class="form-control" id="floatingFirstName" placeholder="First name">
+          <label for="floatingFirstName">First name</label>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-floating mb-2">
+          <input type="text" class="form-control" id="floatingLastName" placeholder="Last name">
+          <label for="floatingLastName">Last name</label>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="form-floating mb-2">
+          <input type="email" class="form-control" id="floatingEmail" placeholder="Email">
+          <label for="floatingEmail">Email</label>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="form-floating mb-2">
+          <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+          <label for="floatingPassword">Password</label>
+        </div>
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary w-100">Sign up</button>
+      </div>
+    </form>
+  </div>
+{% endblock %}
