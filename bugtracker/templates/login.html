@@ -2,11 +2,13 @@
 {% block content %}
   <div id="login" class="text-center">
     <form>
-      <h1 class="my-5">
-        <i class="fas fa-bug"></i>
-        <br>
-        Insecticide
-      </h1>
+      <a class="text-decoration-none text-dark" href="{% url 'index' %}">
+        <h1 class="my-5">
+          <i class="fas fa-bug"></i>
+          <br>
+          Insecticide
+        </h1>
+      </a>
       <div class="form-floating mb-2">
         <input type="email" class="form-control" id="floatingEmail" placeholder="Email">
         <label for="floatingEmail">Email</label>
