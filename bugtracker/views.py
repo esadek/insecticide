@@ -26,3 +26,8 @@ def bugs(request):
     bugs = Bug.objects.all()
     context = {'bugs': bugs}
     return render(request, 'bugs.html', context)
+
+def bug(request, id):
+    bug = Bug.objects.get(id=id)
+    context = {'bug': bug}
+    return render(request, 'bug.html', context)
