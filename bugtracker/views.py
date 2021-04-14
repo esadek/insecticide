@@ -17,6 +17,11 @@ def projects(request):
     context = {'projects': projects}
     return render(request, 'projects.html', context)
 
+def project(request, id):
+    project = Project.objects.get(id=id)
+    context = {'project': project}
+    return render(request, 'project.html', context)
+
 def bugs(request):
     bugs = Bug.objects.all()
     context = {'bugs': bugs}
