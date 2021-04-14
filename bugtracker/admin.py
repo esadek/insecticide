@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Project, Bug
+from . import models
 
-admin.site.register(Project)
-admin.site.register(Bug)
+admin.site.register(models.Project)
+admin.site.register(models.Bug)
