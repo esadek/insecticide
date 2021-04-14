@@ -5,6 +5,9 @@ class Project(models.Model):
     name = models.CharField(max_length=50)
     description = models.CharField(max_length=250)
 
+    def __str__(self):
+        return self.name
+
 
 class Bug(models.Model):
     name = models.CharField(max_length=50)
@@ -12,3 +15,6 @@ class Bug(models.Model):
     project = models.ForeignKey('Project', on_delete=models.CASCADE)
     creation_date = models.DateField()
     due_date = models.DateField()
+
+    def __str__(self):
+        return self.name
