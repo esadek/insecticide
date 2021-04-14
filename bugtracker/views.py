@@ -12,6 +12,9 @@ def login(request):
 def signup(request):
     return render(request, 'signup.html')
 
+def dashboard(request):
+    return render(request, 'dashboard.html')
+
 def projects(request):
     projects = models.Project.objects.all()
     context = {'projects': projects}
