@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+  {% include 'navbar.html' %}
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Project</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for project in projects %}
+      <tr>
+        <th scope="row">{{ project.name }}</th>
+        <td>{{ project.description }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
