@@ -27,7 +27,7 @@ class Bug(models.Model):
     project = models.ForeignKey('Project', on_delete=models.CASCADE)
     status = models.CharField(max_length=20, choices=STATUS, default='Open')
     priority = models.CharField(max_length=10, choices=PRIORITY, default='Normal')
-    creation_date = models.DateField()
+    creation_date = models.DateField(auto_now_add=True)
     due_date = models.DateField()
 
     def __str__(self):
