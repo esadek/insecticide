@@ -16,7 +16,7 @@
       {% for bug in bugs %}
       <tr>
         <th scope="row">
-          <a href="{% url 'project' id=bug.id %}" class="text-decoration-none">
+          <a href="{% url 'bug' id=bug.id %}" class="text-decoration-none">
             {{ bug.name }}
           </a>
         </th>
