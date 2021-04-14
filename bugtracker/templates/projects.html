@@ -11,7 +11,11 @@
     <tbody>
       {% for project in projects %}
       <tr>
-        <th scope="row">{{ project.name }}</th>
+        <th scope="row">
+          <a href="{% url 'project' id=project.id %}" class="text-decoration-none">
+            {{ project.name }}
+          </a>
+        </th>
         <td>{{ project.description }}</td>
       </tr>
       {% endfor %}
