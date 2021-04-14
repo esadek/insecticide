@@ -15,7 +15,11 @@
     <tbody>
       {% for bug in bugs %}
       <tr>
-        <th scope="row">{{ bug.name }}</th>
+        <th scope="row">
+          <a href="{% url 'project' id=bug.id %}" class="text-decoration-none">
+            {{ bug.name }}
+          </a>
+        </th>
         <td>{{ bug.description }}</td>
         <td>{{ bug.status }}</td>
         <td>{{ bug.priority }}</td>
