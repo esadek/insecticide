@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Bug
+from .models import Project, Bug
 
 
 def index(request):
@@ -11,6 +11,11 @@ def login(request):
 
 def signup(request):
     return render(request, 'signup.html')
+
+def projects(request):
+    projects = Project.objects.all()
+    context = {'projects': projects}
+    return render(request, 'projects.html', context)
 
 def bugs(request):
     bugs = Bug.objects.all()
