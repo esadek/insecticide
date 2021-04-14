@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+  {% include 'navbar.html' %}
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Bug</th>
+        <th scope="col">Description</th>
+        <th scope="col">Status</th>
+        <th scope="col">Priority</th>
+        <th scope="col">Created</th>
+        <th scope="col">Due</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for bug in bugs %}
+      <tr>
+        <th scope="row">{{ bug.name }}</th>
+        <td>{{ bug.description }}</td>
+        <td>{{ bug.status }}</td>
+        <td>{{ bug.priority }}</td>
+        <td>{{ bug.creation_date }}</td>
+        <td>{{ bug.due_date }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
