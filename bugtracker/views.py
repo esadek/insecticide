@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 from . import models, forms
 
 
@@ -11,22 +12,26 @@ def signup(request):
     return render(request, 'signup.html')
 
 
+@login_required
 def dashboard(request):
     return render(request, 'dashboard.html')
 
 
+@login_required
 def projects(request):
     projects = models.Project.objects.all()
     context = {'projects': projects}
     return render(request, 'projects.html', context)
 
 
+@login_required
 def project(request, id):
     project = models.Project.objects.get(id=id)
     context = {'project': project}
     return render(request, 'project.html', context)
 
 
+@login_required
 def create_project(request):
     if request.method == 'POST':
         form = forms.ProjectForm(request.POST)
@@ -39,18 +44,21 @@ def create_project(request):
     return render(request, 'form.html', context)
 
 
+@login_required
 def bugs(request):
     bugs = models.Bug.objects.all()
     context = {'bugs': bugs}
     return render(request, 'bugs.html', context)
 
 
+@login_required
 def bug(request, id):
     bug = models.Bug.objects.get(id=id)
     context = {'bug': bug}
     return render(request, 'bug.html', context)
 
 
+@login_required
 def create_bug(request):
     if request.method == 'POST':
         form = forms.BugForm(request.POST)
