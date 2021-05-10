@@ -22,7 +22,21 @@
             </a>
           </th>
           <td>{{ bug.description }}</td>
-          <td>{{ bug.status }}</td>
+          <td>
+            <span class="badge 
+            {% if bug.status == 'Open' %}
+              bg-danger
+            {% elif bug.status == 'In progress' %}
+              bg-secondary
+            {% elif bug.status == 'To be tested' %}
+              bg-info
+            {% elif bug.status == 'Reopen' %}
+              bg-warning
+            {% else %}
+              bg-success
+            {% endif %}
+            ">{{ bug.status }}</span>
+          </td>
           <td>{{ bug.priority }}</td>
           <td>{{ bug.creation_date }}</td>
           <td>{{ bug.due_date }}</td>
