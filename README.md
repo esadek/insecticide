@@ -1,1 +1,1 @@
-# Insecticide
+<img src="bugtracker/static/logo_black.png" width="300">
