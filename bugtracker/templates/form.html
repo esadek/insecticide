@@ -2,7 +2,7 @@
 {% block content %}
   {% include 'navbar.html' %}
   <div class="container mt-5">
-    <form action="" method="POST">
+    <form method="POST">
       {% csrf_token  %}
       {{ form.as_p }}
       <input class="btn btn-primary" type="submit" name="Submit">
