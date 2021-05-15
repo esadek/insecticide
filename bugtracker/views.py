@@ -54,8 +54,14 @@ def bugs(request):
 @login_required
 def bug(request, id):
     bug = models.Bug.objects.get(id=id)
-    context = {'bug': bug}
-    return render(request, 'bug.html', context)
+    form = forms.BugForm(instance=bug)
+    if request.method == 'POST':
+        form = forms.BugForm(request.POST, instance=bug)
+        if form.is_valid():
+            form.save()
+            return redirect('bugs')
+    context = {'form': form}
+    return render(request, 'form.html', context)
 
 
 @login_required
