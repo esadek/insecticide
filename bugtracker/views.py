@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from . import models, forms
 
@@ -9,7 +10,15 @@ def index(request):
 
 
 def signup(request):
-    return render(request, 'signup.html')
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    else:
+        form = UserCreationForm()
+    context = {'form': form}
+    return render(request, 'signup.html', context)
 
 
 @login_required
