@@ -27,8 +27,14 @@ def projects(request):
 @login_required
 def project(request, id):
     project = models.Project.objects.get(id=id)
-    context = {'project': project}
-    return render(request, 'project.html', context)
+    form = forms.ProjectForm(instance=project)
+    if request.method == 'POST':
+        form = forms.ProjectForm(request.POST, instance=project)
+        if form.is_valid():
+            form.save()
+            return redirect('projects')
+    context = {'form': form}
+    return render(request, 'form.html', context)
 
 
 @login_required
