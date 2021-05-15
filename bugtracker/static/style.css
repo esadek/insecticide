@@ -20,7 +20,7 @@ form input {
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-#login {
+.auth {
     width: 100%;
     max-width: 330px;
     padding: 16px;
