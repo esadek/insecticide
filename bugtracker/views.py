@@ -23,7 +23,14 @@ def signup(request):
 
 @login_required
 def dashboard(request):
-    return render(request, 'dashboard.html')
+    context = {}
+    context['total_count'] = models.Bug.objects.all().count()
+    context['open_count'] = models.Bug.objects.filter(status='Open').count()
+    context['in_progress_count'] = models.Bug.objects.filter(status='In progress').count()
+    context['to_be_tested_count'] = models.Bug.objects.filter(status='To be tested').count()
+    context['closed_count'] = models.Bug.objects.filter(status='Closed').count()
+    context['reopen_count'] = models.Bug.objects.filter(status='Reopen').count()
+    return render(request, 'dashboard.html', context)
 
 
 @login_required
