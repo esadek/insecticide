@@ -21,7 +21,7 @@
               {{ bug.name }}
             </a>
           </th>
-          <td>{{ bug.description }}</td>
+          <td>{{ bug.description|truncatechars:40 }}</td>
           <td>
             <span class="badge 
             {% if bug.status == 'Open' %}
