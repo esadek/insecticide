@@ -52,5 +52,125 @@
         </div>
       </div>
     </div>
+    <div class="row g-2">
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <div class="col-lg-4">
+        <div class="card text-dark bg-light mb-2">
+          <div class="card-header">Latest</div>
+          <div class="card-body p-0">
+            <div class="table-responsive">
+              <table class="table mb-0">
+                <thead class="table-light">
+                  <tr>
+                    <th scope="col">Bug</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Priority</th>
+                    <th scope="col">Due</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for bug in latest_bugs %}
+                  <tr>
+                    <th scope="row">
+                      <a href="{% url 'bug' id=bug.id %}" class="text-decoration-none">
+                        {{ bug.name }}
+                      </a>
+                    </th>
+                    <td>
+                      <span class="badge 
+                      {% if bug.status == 'Open' %}
+                        bg-danger
+                      {% elif bug.status == 'In progress' %}
+                        bg-secondary
+                      {% elif bug.status == 'To be tested' %}
+                        bg-info
+                      {% elif bug.status == 'Reopen' %}
+                        bg-warning
+                      {% else %}
+                        bg-success
+                      {% endif %}
+                      ">{{ bug.status }}</span>
+                    </td>
+                    <td>{{ bug.priority }}</td>
+                    <td>{{ bug.due_date }}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card text-dark bg-light mb-2">
+          <div class="card-header">Status</div>
+          <div class="card-body">
+            <canvas id="status-chart"></canvas>
+          </div>
+        </div>
+        <script>
+          const statusConfig = {
+            type: 'doughnut',
+            data: {
+              labels: ['Open', 'In Progress', 'To Be Tested', 'Closed', 'Reopen'],
+              datasets: [{
+                data: [
+                  {{ open_count }},
+                  {{ in_progress_count }},
+                  {{ to_be_tested_count }},
+                  {{ closed_count }},
+                  {{ reopen_count }}
+                ],
+                backgroundColor: ['#DC3545', '#6C757D', '#0DCAF0', '#198754', '#FFC107']
+              }]
+            },
+            options: {
+              responsive: true,
+              plugins: {
+                legend: {position: 'bottom'}
+              }
+            }
+          };
+          var statusChart = new Chart(
+            document.getElementById('status-chart'),
+            statusConfig
+          );
+        </script>
+      </div>
+      <div class="col-lg-4">
+        <div class="card text-dark bg-light mb-2">
+          <div class="card-header">Priority</div>
+          <div class="card-body">
+            <canvas id="priority-chart"></canvas>
+          </div>
+        </div>
+        <script>
+          const priorityConfig = {
+            type: 'doughnut',
+            data: {
+              labels: ['High', 'Normal', 'Low'],
+              datasets: [{
+                data: [
+                  {{ high_count }},
+                  {{ normal_count }},
+                  {{ low_count }}
+                ],
+                backgroundColor: ['#DC3545', '#FFC107', '#198754']
+              }]
+            },
+            options: {
+              responsive: true,
+              plugins: {
+                legend: {position: 'bottom'}
+              }
+            }
+          };
+          var priorityChart = new Chart(
+            document.getElementById('priority-chart'),
+            priorityConfig
+          );
+        </script>
+      </div>
+    </div>
   </div>
 {% endblock %}
