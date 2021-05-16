@@ -1,4 +1,56 @@
 {% extends 'base.html' %}
 {% block content %}
   {% include 'navbar.html' %}
+  <div class="container-fluid mt-3">
+    <div class="row g-2">
+      <div class="col">
+        <div class="card text-dark bg-light mb-2">
+          <div class="card-header">Total Bugs</div>
+          <div class="card-body">
+            <h1 class="card-title">{{ total_count }}</h1>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-white bg-danger mb-2">
+          <div class="card-header">Open</div>
+          <div class="card-body">
+            <h1 class="card-title">{{ open_count }}</h1>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-white bg-secondary mb-2">
+          <div class="card-header">In Progress</div>
+          <div class="card-body">
+            <h1 class="card-title">{{ in_progress_count }}</h1>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-white bg-info mb-2">
+          <div class="card-header">To Be Tested</div>
+          <div class="card-body">
+            <h1 class="card-title">{{ to_be_tested_count }}</h1>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-white bg-success mb-2">
+          <div class="card-header">Closed</div>
+          <div class="card-body">
+            <h1 class="card-title">{{ closed_count }}</h1>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-white bg-warning mb-2">
+          <div class="card-header">Reopen</div>
+          <div class="card-body">
+            <h1 class="card-title">{{ reopen_count }}</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}
