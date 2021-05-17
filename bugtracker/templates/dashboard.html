@@ -72,7 +72,7 @@
                   <tr>
                     <th scope="row">
                       <a href="{% url 'bug' id=bug.id %}" class="text-decoration-none">
-                        {{ bug.name }}
+                        {{ bug.name|truncatechars:50 }}
                       </a>
                     </th>
                     <td>
