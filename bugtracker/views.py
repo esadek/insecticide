@@ -41,7 +41,7 @@ def dashboard(request):
 
 @login_required
 def projects(request):
-    projects = models.Project.objects.all()
+    projects = models.Project.objects.all().order_by('-id')
     context = {'projects': projects}
     return render(request, 'projects.html', context)
 
