@@ -74,7 +74,7 @@ def create_project(request):
 
 @login_required
 def bugs(request):
-    bugs = models.Bug.objects.all()
+    bugs = models.Bug.objects.all().order_by('-id')
     context = {'bugs': bugs}
     return render(request, 'bugs.html', context)
 
