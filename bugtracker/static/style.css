@@ -20,6 +20,10 @@ form input {
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
+#bugs-screenshot {
+    max-height: 50vh;
+}
+
 .auth {
     width: 100%;
     max-width: 330px;
