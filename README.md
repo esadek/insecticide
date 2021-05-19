@@ -22,3 +22,7 @@ Run app:
 ```
 $ python manage.py runserver
 ```
+
+## License
+
+[MIT](https://github.com/esadek/insecticide/blob/main/LICENSE)
