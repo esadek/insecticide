@@ -23,6 +23,13 @@ Run app:
 $ python manage.py runserver
 ```
 
+## Testing
+
+Run all tests:
+```
+$ ./manage.py test
+```
+
 ## License
 
 [MIT](https://github.com/esadek/insecticide/blob/main/LICENSE)
