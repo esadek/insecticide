@@ -11,6 +11,7 @@
           <th scope="col">Priority</th>
           <th scope="col">Created</th>
           <th scope="col">Due</th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
@@ -40,6 +41,13 @@
           <td>{{ bug.priority }}</td>
           <td>{{ bug.creation_date }}</td>
           <td>{{ bug.due_date }}</td>
+          <td>
+            <a href="{% url 'delete bug' id=bug.id %}" class="text-decoration-none">
+              <button type="button" class="btn btn-sm btn-outline-danger">
+                <i class="fas fa-trash-alt"></i>
+              </button>
+            </a>
+          </td>
         </tr>
         {% endfor %}
       </tbody>

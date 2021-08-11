@@ -8,7 +8,9 @@ urlpatterns = [
     path('projects/', views.projects, name='projects'),
     path('project/create/', views.create_project, name='create project'),
     path('project/<int:id>/', views.project, name='project'),
+    path('project/delete/<int:id>/', views.delete_project, name='delete project'),
     path('bugs/', views.bugs, name='bugs'),
     path('bug/create/', views.create_bug, name='create bug'),
     path('bug/<int:id>/', views.bug, name='bug'),
+    path('bug/delete/<int:id>/', views.delete_bug, name='delete bug'),
 ]
